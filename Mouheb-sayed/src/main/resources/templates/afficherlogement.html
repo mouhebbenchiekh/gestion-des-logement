@@ -15,7 +15,7 @@
       <p class="card-text" th:text="${logement.description}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
-    <div class="card-footer ">
+    <div class="card-footer " th:if="${login}">
             <a th:href="@{commander(id=${logement.id})}" class="btn btn-primary ">Learn More</a>
           </div>
 	</div>

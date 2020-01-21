@@ -10,7 +10,7 @@
   <div class="container">
 
     <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3" th:text="${agence.name}">Services
+    <h1 class="mt-4 mb-3" th:text="${clientid.name}">Services
       <small>Subheading</small>
     </h1>
 
@@ -25,15 +25,15 @@
     <img class="img-fluid rounded mb-4" src="http://placehold.it/1200x300" alt="">
     
     <ul class="list-group list-group-flush">
-	  <li class="list-group-item">Name :<small th:text="${agence.name}"></small></li>
-	  <li class="list-group-item">Email :<small th:text="${agence.email}"></small></li>
-	  <li class="list-group-item">Adresse :<small th:text="${agence.adresse}"></small></li>
+	  <li class="list-group-item">Name :<small th:text="${clientid.name}"></small></li>
+	  <li class="list-group-item">Email :<small th:text="${clientid.email}"></small></li>
+	  <li class="list-group-item">Adresse :<small th:text="${clientid.adresse}"></small></li>
 	  
 	</ul>
 
     <!-- Marketing Icons Section -->
     <div class="row">
-      <div  th:each="logement :${agence.logement} "class="col-lg-4 mb-4">
+      <div  th:each="logement :${clientid.logement} "class="col-lg-4 mb-4">
         <div class="card h-100">
           <h4 class="card-header" th:text="${logement.libelle}"></h4>
           <div class="card-body">
@@ -46,7 +46,7 @@
            
           </div>
           <div class="card-footer">
-            <a th:href="@{edit(id=${logement.id},ag=${agence.id})}" class="btn btn-secondary mx-2">Edit</a>
+            <a th:href="@{edit(id=${logement.id})}" class="btn btn-secondary mx-2">Edit</a>
             <a th:href="@{delete(id=${logement.id})}" class="btn btn-primary mx-2">Delete</a>
           </div>
         </div>
@@ -54,7 +54,7 @@
       </div>
       
       <div class="row my-5">
-      <a th:href="@{ajoutlogement(ag=${agence.id})}" class="btn btn-primary mx-2">Ajouter logement</a>
+      <a th:href="@{ajoutlogement}" class="btn btn-primary mx-2">Ajouter logement</a>
       </div>
       
     <!-- /.row -->

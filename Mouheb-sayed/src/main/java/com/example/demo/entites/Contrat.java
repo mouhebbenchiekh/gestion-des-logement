@@ -18,10 +18,10 @@ public class Contrat implements Serializable {
 	@GeneratedValue
 	private Long id;
 	@ManyToOne
-	@JoinColumn(name="id-client")
+	@JoinColumn(name="client")
 	public Clients client;
 	@ManyToOne
-	@JoinColumn(name="id-logement")
+	@JoinColumn(name="logement")
 	public Logement logement;
 	private Date datedebut;
 	private Date datefin;
@@ -76,8 +76,14 @@ public class Contrat implements Serializable {
 	public Date getDatefin() {
 		return datefin;
 	}
-	public void setDurée(Date durée) {
+	public void setDatefin(Date durée) {
 		this.datefin = durée;
+	}
+	public String getEtat() {
+		return etat;
+	}
+	public void setEtat(String etat) {
+		this.etat = etat;
 	}
 	
 	

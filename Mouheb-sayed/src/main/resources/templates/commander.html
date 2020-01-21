@@ -8,6 +8,9 @@
 <div th:replace="common/header :: nav-bar">
 </div>
 <div class="container">
+<div  th:if="${erreur}" class="alert alert-danger" role="alert">
+  logement deja loué
+</div>
 <form th:method="GET" th:action="@{confirm}" th:object="${contrat}">
 <div class="form-group">
 			    <label for="exampleFormControlFile1">Datedebut</label>
@@ -25,6 +28,7 @@
 			    <label for="exampleFormControlFile1">client</label>
 			    <input th:field="${contrat.client}" type="text" class="form-control-file" id="exampleFormControlFile1">
 			  </div>
+			  <button type="submit" class="btn btn-primary">Submit</button>
 			  </form>
 </div>
 
