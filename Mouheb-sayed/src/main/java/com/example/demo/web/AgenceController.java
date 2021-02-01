@@ -122,6 +122,38 @@ public class AgenceController {
 		return "affichercommande";
 		
 	}
+	@RequestMapping(value="approuve")
+	public String approuve(Model m,HttpServletRequest request,@RequestParam(name="id")Long id) {
+		Contrat c=con.getOne(id);
+		c.setEtat("approuved");
+		
+		
+		Agence a =(Agence) request.getSession().getAttribute("clientid");
+		m.addAttribute("agence",a);
+		Collection<Contrat> cl=con.getbyagence(a.getId());
+		
+		m.addAttribute("login",true);
+		m.addAttribute("role", "agence");
+		m.addAttribute("contrats", cl);
+		return "affichercommande";
+		
+	}
+	
+	@RequestMapping(value="refuse")
+	public String refuse(Model m,HttpServletRequest request,@RequestParam(name="id")Long id) {
+		
+		Contrat c=con.getOne(id);
+		c.setEtat("refused");
+		Agence a =(Agence) request.getSession().getAttribute("clientid");
+		m.addAttribute("agence",a);
+		Collection<Contrat> cl=con.getbyagence(a.getId());
+		
+		m.addAttribute("login",true);
+		m.addAttribute("role", "agence");
+		m.addAttribute("contrats", cl);
+		return "affichercommande";
+		
+	}
 	
 	
 	

@@ -1,7 +1,9 @@
 package com.example.demo.web;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -43,6 +45,7 @@ public class ContratController {
 		Contrat con =new Contrat();
 		con.client=c;
 		con.logement=l;
+		System.out.print(con.getDatedebut());
 		m.addAttribute("contrat", con);
 		m.addAttribute("login",true);
 		m.addAttribute("role", "client");
@@ -52,11 +55,16 @@ public class ContratController {
 	public String profile(Model m,Contrat c) {
 		m.addAttribute("clientid");
 		Collection<Contrat> ct= contrat.findByLogement_Logement(c.logement.getId());
+		System.out.println("*******");
+		System.out.println(c.getDatedebut());
+		
 			
 		
 		
+		
+		
 			for (Contrat contrat : ct) {
-				if((contrat.getDatedebut().before(c.getDatedebut()))&&(contrat.getDatefin().after(c.getDatedebut()))) {
+				if((contrat.getDatedebut().compareTo(c.getDatedebut())<0)&&(contrat.getDatefin().compareTo(c.getDatedebut())>0)) {
 					m.addAttribute(c);
 					m.addAttribute("erreur", true);
 					m.addAttribute("login",true);
@@ -65,6 +73,7 @@ public class ContratController {
 				}
 				
 			}
+			c.setEtat("en attente");
 			contrat.save(c);
 			m.addAttribute("login",true);
 			m.addAttribute("role", "client");

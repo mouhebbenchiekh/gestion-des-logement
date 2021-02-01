@@ -23,11 +23,11 @@ public class Contrat implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="logement")
 	public Logement logement;
-	private Date datedebut;
-	private Date datefin;
+	private String datedebut;
+	private String datefin;
 	private String etat;
 	
-	public Contrat(Long id, Clients client, Logement logement, Date datedebut, Date durée,String etat) {
+	public Contrat(Long id, Clients client, Logement logement, String datedebut, String durée,String etat) {
 		super();
 		this.id = id;
 		this.client = client;
@@ -36,7 +36,7 @@ public class Contrat implements Serializable {
 		this.datefin = durée;
 		this.etat=etat;
 		}
-	public Contrat( Clients client, Logement logement, Date datedebut, Date durée,String etat) {
+	public Contrat( Clients client, Logement logement, String datedebut, String durée,String etat) {
 		super();
 		
 		this.client = client;
@@ -67,16 +67,16 @@ public class Contrat implements Serializable {
 	public void setLogement(Logement logement) {
 		this.logement = logement;
 	}
-	public Date getDatedebut() {
+	public String getDatedebut() {
 		return datedebut;
 	}
-	public void setDatedebut(Date datedebut) {
+	public void setDatedebut(String datedebut) {
 		this.datedebut = datedebut;
 	}
-	public Date getDatefin() {
+	public String getDatefin() {
 		return datefin;
 	}
-	public void setDatefin(Date durée) {
+	public void setDatefin(String durée) {
 		this.datefin = durée;
 	}
 	public String getEtat() {

@@ -24,7 +24,7 @@
     </ol>
 
     <!-- Image Header -->
-    <img class="img-fluid rounded mb-4" src="http://placehold.it/1200x300" alt="">
+    <img class="img-fluid rounded mb-4" th:src="@{/img/}+'studio.jpg'" alt="">
     <ul class="list-group list-group-flush">
 	  <li class="list-group-item">Name :<small th:text="${clientid.fname}"></small></li>
 	  <li class="list-group-item">Email :<small th:text="${clientid.email}"></small></li>
@@ -33,41 +33,28 @@
 	</ul>
 
     <!-- Marketing Icons Section -->
-    <div class="row">
-      <div class="col-lg-4 mb-4">
+
+       <div class="row">
+      <div  th:each="con :${clientid.contrat} "class="col-lg-4 mb-4">
         <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
+          <h4 class="card-header" th:text="${con.logement.id}"></h4>
           <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+          <ul class="list-group list-group-flush">
+	  <li class="list-group-item">Datedebut :<small th:text="${con.datedebut}"></small></li>
+	  <li class="list-group-item">Datefin :<small th:text="${con.datefin}"></small></li>
+	  <li class="list-group-item">Etat :<small th:text="${con.etat}"></small></li>
+	  
+	</ul>
+           
           </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
+         
         </div>
       </div>
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
       </div>
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </div>
+      
+     
+     
+  
     <!-- /.row -->
 
   </div>
